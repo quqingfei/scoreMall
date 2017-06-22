@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+CACHE:
+/js/plugins/jquery-1.8.3.min.js
+/js/plugins/jquery.cookie.min.js
+/js/plugins/vue.min.js
+/js/comming/service.js
+/js/comming/comming.js
+
+NETWORK:
+/js/pagejs/mysource.js
+/css/mysource.css

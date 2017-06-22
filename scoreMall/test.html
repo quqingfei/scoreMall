@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html lang="en" manifest="mysource.manifest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="css/mysource.css">
+    <title>我的积分</title>
+</head>
+<style>
+    .ealy{position: absolute;right: 7px;top: 7px;width: 7rem;}
+    .ealy img{display: block;}
+    #mysource{display: none;}
+</style>
+<body>
+<div id="mysource">
+    <div class="headBox">
+        <div class="head">
+            <div class="header"><img :src="imgHead" alt=""></div>
+        </div>
+        <div class="headTit">
+            <div class="headName">{{userName}}</div>
+            <div class="headCoin"><span id="headCoin">{{score-usedScore}}</span>&nbsp;燃脂币</div>
+        </div>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="newtable.html"><span style="width:6rem;"><img src="img/mysource.png" alt=""><div>积分记录</div></span></a></li>
+            <li><a href="addcoin.html" class="gang"><span style="width:7rem;"><img src="img/jifeng2.png" alt=""><div>赚取燃脂币</div></span></a></li>
+            <li><a href="list.html?userid={{userid}}"><span style="width:6rem;"><img src="img/zhuan.png" alt=""><div>兑换记录</div></span></a></li>
+        </ul>
+    </div>
+    <div class="title">限量兑换</div>
+    <div class="ware" v-for="todo in todos">
+        <a v-if='todo.count-todo.cashedCount<=0' href="javascript:;">
+        <img class="gray" :src="todo.cover" alt="">
+        </a>
+        <a v-if='todo.isExchangeable == "n"' href="javascript:;">
+        <img style="display:none;" :src="todo.cover" alt="">
+        </a>
+        <a v-if='todo.isExchangeable == "y" && todo.count-todo.cashedCount>0' href="card.html?id={{todo.id}}">
+        <img :src="todo.cover" alt="">
+        </a>
+        <div class="buyBtn" v-if='todo.isExchangeable == "y"'><a href="card.html?id={{todo.id}}"><span>￥{{todo.rmbPrice}}</span>&nbsp;市场价</a></div>
+<!--        <div class="buyBtn" style="background:#eee;display:none;" v-else><a href="javascript:;"><span style="color:#666;font-size:1rem;line-height:2.8rem;">不可兑换</span></a></div>-->
+        <div class="buyBtn" style="background:#eee;" v-if='todo.count-todo.cashedCount <= 0'><a href="javascript:;"><span style="color:#666;font-size:1rem;line-height:2.8rem;"><span>￥{{todo.rmbPrice}}</span>&nbsp;市场价</a></div>
+        <div class="ealy" v-if='todo.count-todo.cashedCount <= 0'><img src="img/ealy.png" alt=""></div>
+        <div class="miaosh" style="display:none;"  v-if='todo.isExchangeable == "n"'>已有<span>{{todo.cashedCount}}</span>人参与兑换</div>
+        <div class="miaosh"  v-else>已有<span>{{todo.cashedCount}}</span>人参与兑换</div>
+    </div>
+<!--    <input type="button" v-on:click="getSign" value="单击获取签名">-->
+</div>
+<!--<div class="load"><img src="img/loading.png" alt=""></div>-->
+</body>
+<script src="js/plugins/jquery-1.8.3.min.js"></script>
+<!--<script src="js/comming/testlogin.js"></script>-->
+<script>
+        var sw = $(window).width();
+        if(sw>640){
+            sw = 640;
+        }
+    $("html").css("font-size",sw/1080*32.8125+"px");
+
+    function zkBackEvent(){
+        
+    }
+    function getSignData() {
+        if (!window.WebViewJavascriptBridge) {
+            return false;
+        }
+        window.WebViewJavascriptBridge.callHandler('getSign', {},
+            function(responseData) {
+                deviceData = responseData;
+            });
+            return deviceData;
+    }
+    function connectWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) {
+            callback(WebViewJavascriptBridge);
+        } else {
+            document.addEventListener('WebViewJavascriptBridgeReady', function() {
+                callback(WebViewJavascriptBridge);
+            }, false);
+        }
+    }
+    connectWebViewJavascriptBridge(function(bridge) {
+        // 初始化
+        bridge.init(function(message, responseCallback) {
+            var data = {
+                'Javascript Responds': 'backApp'
+            };
+            responseCallback(data);
+        });
+        // oc调用js方法
+        bridge.registerHandler('zkBackEvent',function(data, responseCallback) {
+            var responseData = '';
+            responseCallback(responseData);
+        }); 
+        bridge.registerHandler('readyBack',function(data, responseCallback) {
+            readyBack();
+            var responseData = {
+                'Javascript Says': 'readBack!'
+            };
+            responseCallback(responseData);
+        });    
+
+    });
+</script>
+
+<script src="js/plugins/jquery.cookie.min.js"></script>
+<script src="js/comming/comming.js"></script>
+<script src="js/comming/service.js"></script>
+<script src="js/plugins/vue.min.js"></script>
+<script src="js/pagejs/mysource.js"></script>
+<script>
+if (window.applicationCache.status == window.applicationCache.UPDATEREADY){
+        window.applicationCache.update(); 
+}    
+</script>
+</html>

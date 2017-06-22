@@ -1,0 +1,18 @@
+    body{margin: 0;padding: 0;font-family: '微软雅黑';background: #eeeeee;}
+    .description{margin: 1.2rem;}
+    .what{font-size: 1.4rem;font-weight: bold;color: #666;}
+    .description p{font-size: 1.2rem;color: #999;}
+    .line{border-bottom: 1px solid #e9e9e9;}
+    .iconCoin{width:33.33%;float: left;border-right: 1px solid #e9e9e9;border-bottom: 1px solid #e9e9e9;box-sizing: border-box;}
+    .iconCoin img{display: block;width: 50%;padding-top:16%;margin: 0 auto;}
+    .iconCoin a{display: block;width: 100%;height: 100%;text-decoration: none;color: #666666;}
+    .des{text-align: center;font-size: 1.2rem;margin-top: 0.5rem;}
+.cise{background: url(../img/source.png) no-repeat left 50%;background-size: 1.9rem;padding-left: 2.1rem;  line-height: 2rem;}
+.lsera{padding: 10px 1.2rem;overflow: hidden;height: 4.2rem;background: white;border-bottom: 1px solid #e9e9e9;}
+.lseral{float: left;line-height: 2.1rem;}
+.lserat{font-weight: bold;font-size: 1.2rem;color: #666666}
+.lserab{font-size: 1.2rem;color: #999;}
+.lserar{float: right;line-height: 4.2rem;color: #3fc370;font-size: 1.6rem;}
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+input,textarea{-webkit-appearance:none;}
+[v-cloak]{display: none;}

@@ -1,0 +1,20 @@
+  body,html{font-family: '微软雅黑';padding: 0;margin: 0;height: 100%;position: relative;background: #e9e9e9;}  
+    .coneter{padding: 10px 4% 10px 4%;background: white;}
+    .bottomLan{width: 100%;height: 50px;line-height: 50px;  position: fixed;  bottom: 0; left: 0;  background: #3fc371;border-top: 1px solid #ccc;}
+    .duihuanbtn {width: 100%;display: block;height: 100%;text-decoration: none;text-align: center;color: white;font-size: 14px;}
+    .guige,.shuliang{overflow: hidden;}
+    .shuliang{line-height: 45px; border-bottom: 1px solid #eee;font-size: 14px;position: relative;color: #666;}
+    .shlmi{float: left;font-weight: bold;}
+    .count{float: left;}
+    .count span{color: darkorange;}
+    .count input{float: left;line-height: 25px;margin-top: 10px; outline: none;border: none;padding: 0;}
+    small{  display: block; height: 0px; line-height: 12px;font-size: 10px;color: red;  position: absolute;  bottom: 13px;  left: 0px;}
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    input[type="number"]{
+      -moz-appearance: textfield;
+    }
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+input,textarea{-webkit-appearance:none;}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="css/list.css">
+    <title>订单列表</title>
+</head>
+<style>
+    .noinfation{text-align: center;width: 100%; color: #FFF; text-shadow: 0px 0px 1px #000;line-height: 100%;display: none;background: url(img/zks_no_data.png) no-repeat center center;  background-size: 140px;}
+    .mores{text-align: center;line-height: 2rem;color: #999;display: block;width: 100%;}
+    .codetit{overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap;}
+</style>
+<body>
+<div id="list">
+    <!--<div class="list" v-for="todo in todos">
+        <div class="storeimg"><img :src="todo.image" alt=""></div>
+        <div class="storetit">
+            <div class="code">劵码: <span>{{todo.id}}</span></div>
+            <div class="codetit">{{todo.name}}</div>
+            <div class="codetit">类型：{{todo.type}}</div>
+            <div class="coind"> 
+               <div class="coindser">           
+                    <div class="codecoin"><span>{{todo.price}}</span>燃脂币</div>
+                    <div class="codenum">x{{todo.count}}</div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+<!--<a class="mores" v-on:click="isAdd">点击加载更多</a>-->
+<div class="noinfation"></div>
+<div class="load" style="display:none;"><img src="img/loading.png" alt=""></div>
+</body>
+<script src="js/plugins/jquery-1.8.3.min.js"></script>
+<script src="js/plugins/jquery.cookie.min.js"></script>
+<script src="js/comming/comming.js"></script>
+<script src="js/comming/service.js"></script>
+<script src="js/plugins/vue.min.js"></script>
+<script src="js/pagejs/list.js"></script>
+</html>

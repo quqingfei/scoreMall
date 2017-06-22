@@ -1,0 +1,70 @@
+    body{margin: 0;padding: 0;font-family: '微软雅黑';background: #e9e9e9;width: 100%;color: #666666;position: relative;}
+    ul,li{list-style: none;padding: 0;margin: 0;}
+    .headBox{overflow: hidden;background: white;height: 10rem;}
+    .header,.headTit{float:left}
+    .head{width: 30%;overflow: hidden;float: left}
+    .headCoin{font-size: 1.2rem;margin-top: 0.5rem;}
+    .headCoin span{font-size: 2.5rem;color: #3fc371;}
+    .headTit{width: 70%;margin-top: 2.9rem}
+    .header{border: 1px solid #ccc;border-radius: 50%;overflow: hidden;width: 6rem;height: 6rem;margin: 2rem auto 0 14%;box-sizing: border-box;}
+    .header img{width: 100%;height: 100%;display: block;}
+    .headName{font-size: 1.5rem}
+    .menu{margin: 0.6rem 0;}
+    .menu ul{overflow: hidden;background:#3fc371;}
+    .menu ul li{float: left;width: 33.33%;height: 3.5rem;}
+    .menu ul li a{text-decoration: none;text-align: center;display: block;width: 100%;height: 50%;line-height: 1.7rem;margin-top: 0.9rem;color: white;}
+    .menu ul li a span{overflow: hidden;display: block;margin: 0 auto}
+    .menu ul li a img{display: block;width:1.3rem;float: left;margin-top: 0.2rem;}
+    .menu ul li a div{float: left;  margin-left: 3px;}
+    .ware{width: 100%;margin-top: 0.6rem;position: relative;}
+    .ware img{display: block;width: 100%;}
+    .buyBtn{position: absolute;background: #3fc371;height: 2.8rem;border-radius: 5px;bottom: 10px;left: 10px;}
+    .buyBtn a{display: block;text-align: center;text-decoration: none;color: white;line-height: 2.8rem;font-size: 1rem;  padding: 0 6px 0 2px;}
+    .buyBtn span{font-size: 1.6rem;font-weight: bold;}
+    .miaosh{position: absolute;right: 10px;bottom: 10px;font-size: 1rem;/*text-shadow: 0 0 1px #ccc;*/}
+    .title{height: 3rem;background: white;color: #666;text-align: center;font-size: 1.2rem;line-height: 3.2rem;}
+    .load{position: fixed;top: 0;left: 0;height: 100%;width: 100%;text-align: center;background: #1c1c1c;}
+    .load img{display: block;position: absolute;top: 50%;left: 50%;margin-left: -50px;margin-top: -50px;width: 100px;height: 100px;
+-webkit-animation: rotate 2s infinite linear;}
+
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+    .gang{        border-left: 1px solid white;        border-right: 1px solid white;    }
+.gray { 
+    -webkit-filter: grayscale(80%);
+    -moz-filter: grayscale(80%);
+    -ms-filter: grayscale(80%);
+    -o-filter: grayscale(80%);
+    
+    filter: grayscale(80%);
+	
+    filter: gray;
+}
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+input,textarea{-webkit-appearance:none;}
+
+
+.heads{height:2.90625rem;margin-bottom:0.1875rem ;background-color: white;}
+.headicon{width:2.40625rem;height: 100%;float: left;}
+.headicon img{width: 1.5625rem;height: 1.5625rem;border: 0.03125rem solid #ccc;margin-left: 0.484375rem;margin-top: 0.671875rem;border-radius: 50%;}
+.lise{float: left;overflow: hidden;}
+.name{margin-top: 0.90625rem;}
+.coin{margin-top: 0.25rem;}
+.name,.coin{font-size: 0.3125rem;}
+.coin span{color: #3fc371;font-size: 0.59375rem;}
+.mune{height: 1.03125rem;line-height: 1.03125rem;background-color: white;margin-bottom:0.1875rem;text-align: center;font-size: 0.3125rem;}
+.mune li{float: left;width: 33.3333%;text-align: center;} 
+.mune li a{display: block;width: 100%;height: 100%;color: white;font-size: 0.3125rem;position: relative;}
+.mune li a.lie:before{content: "|";position: absolute;right: -1px;}
+.banner{height: 5.3125rem;width: 100%;margin-bottom:0.1875rem;position: relative;}
+.banner img{height: 100%;width: 100%;display: block;float: left;}
+[v-cloak] {
+  display: none;
+}
+.lospe{border-radius: 4px;position: absolute;left: 0.46875rem;color: white;font-size: 0.21875rem;background-color: #3fc371;bottom: 0.234375rem;padding: 0.171875rem;}
+.lospe span{font-size:0.59375rem;}
+.lospe a{color: white;}
+.iole{color:#666;font-size: 0.1875rem;position: absolute;right: 0.46875rem;bottom: 0.234375rem;}
+.eole{position: absolute;right: 10px;width:2.25rem;top: 10px;}

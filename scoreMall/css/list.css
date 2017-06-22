@@ -1,0 +1,24 @@
+    body,html{font-family: '微软雅黑';padding: 0;margin: 0;height: 100%;position: relative;background: #e9e9e9;}
+    .list{
+        overflow: hidden;background: white;padding: 5px;color: #333;margin-top: 0.4rem;
+    }
+    .storeimg{float: left;width: 10rem;height: 8rem;margin-right: 5px;}
+    .storeimg img{display: block;width: 100%;height:100%;}
+    .storetit{float: left;position: relative;font-size: 1rem;height: 8rem;width: 57%;}
+    .coind{overflow: hidden;width: 100%;position: absolute;left: 0;bottom: 0;}
+    /*.code{margin-top: 1rem;}*/
+    .code span{color: #3fc371;}
+    .codecoin{float: left;color: #333;}
+    .coindser{overflow: hidden;position: relative;}
+    .codecoin span{font-size: 2.4rem;color: #3fc371;}
+    .codenum{float: right;position: absolute;bottom: 0;right: 0;}
+  .load{position: fixed;top: 0;left: 0;height: 100%;width: 100%;text-align: center;background: #1c1c1c;}
+    .load img{display: block;position: absolute;top: 50%;left: 50%;margin-left: -50px;margin-top: -50px;width: 100px;height: 100px;
+-webkit-animation: rotate 2s infinite linear;}
+
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+input,textarea{-webkit-appearance:none;}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="css/regect.css">
+    <title>订单确认</title>
+</head>
+<style>
+    .go{position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,0.8);top: 0;left: 0;}
+    .goo{width: 240px;height: 160px;background: white;border-radius: 5px;margin: 0 auto;position: relative;top: 50%;margin-top: -90px;overflow: hidden;}
+    .goa{text-align: center;line-height: 100px;font-size: 18px;}
+    .gob{text-align: center;line-height: 60px;font-size: 18px;color: white;background: #3fc371;}
+</style>
+<body>
+<div id="regect">
+    <div class="address">
+    <div class="addressDetials" id="ziti" style="display:none"><a class="link" href="javascript:;"><div class="addressDetialLeft"><div class="add1">取货地址</div><div>电话：027-87887826</div><div>地址：湖北省武汉市武昌区水果湖东湖路10号水果湖广场2楼ZK智能健身中心</div></div></a></div>
+    </div>
+    <div class="dindaninfoser">
+        <div class="dindantit">订单信息</div>
+        <div class="ghsh">供货商：<span>{{producter}}</span></div>
+        <div class="overflow-hide">
+            <div class="pro-img"><img :src="imgUrl+bannerType" alt=""></div>
+            <div class="proDetail">
+                <div class="pro-tit">{{name}}</div>
+                <div class="guige">类型:{{typeName}}</div>
+                <div class="meert"><span>{{typePrice}}</span>元 <div class="c">x{{num}}</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="dindaninfo">
+        <div class="shuliang">
+            <div class="shlmi">数量：</div>
+            <div class="count">共<span>{{num}}</span>件</div>
+        </div>
+        <div class="shuliang">
+            <div class="shlmi">配送方式：</div>
+            <div class="count downicon" @click="showDown" val="0">{{k}}<div class="mdsk" @click="showUp">门店自提</div></div>
+        </div>
+        <div class="shuliang yunfei">
+            <div class="shlmi">运费：</div>
+            <div class="count">免运费</div>
+        </div>
+        <div class="shuliang">
+            <!--<div class="shlmi">可用<input class="coin" @keyup="duicoin" type="number" v-model="mores">燃脂币可抵{{mores/100}}元</div>-->
+            <div class="shlmi">可用<span v-text="mores">0</span>燃脂币可抵{{mores/100}}元</div>
+            <div class="count"><span class="btn-s"  @click="diyong(this)" val="0"><span class="btn-a"></span></span></div>
+        </div>
+        <div class="shuliang">
+            <div class="shlmi bold" style="color:#666">实际支付：</div>
+            <div class="count bold">
+            <span v-if="s==0" v-text="typePrice*num"></span>
+            <span v-if="s==1" v-text="(typePrice*num - mores/100)<=0.01?0.01:Math.round((typePrice*num - mores/100)*100)/100"></span>
+            &nbsp;元</div>
+        </div>
+    </div>
+    <div class="dindaninfo" id="zhif" style="padding-bottom: 45px;">
+        <div class="shuliang">
+            <div class="shlmi bold" style="color:#333333;border-left: 2px solid #3fc371;
+  line-height: 1.4rem;
+  padding-left: 4px;
+  margin-top: 0.8rem;">选择支付方式</div>
+        </div>
+        <div class="shuliang"  @click="zhifub($event)">
+            <div class="shlmi zfb">支付宝支付</div>
+            <div class="count"> <span class="rod"><span val="alipay" class="grd"></span></span>  </div>
+        </div>
+        <div class="shuliang"  @click="weixin($event)" style="border-bottom: 1px solid #eee;">
+            <div class="shlmi wx">微信支付</div>
+            <div class="count"> <span class="rod"><span val="wxpay"></span></span> </div>
+        </div>
+    </div>
+    <div class="bottomLan" data-index='0'>
+        <a class="duihuanbtn" href="javascript:;" v-on:click="buyNow">确认兑换</a>
+    </div>
+</div>
+<div class="load"><img src="img/loading.png" alt=""></div>
+<!--
+<div class="go">
+   <div class="goo">
+        <div class="goa">兑换成功</div>
+        <div class="gob">确定</div>
+   </div>
+    
+</div>
+-->
+</body>
+<script src="js/plugins/jquery-1.8.3.min.js"></script>
+<script src="js/plugins/jquery.cookie.min.js"></script>
+<script src="js/comming/comming.js"></script>
+<script src="js/comming/service.js"></script>
+<script src="js/plugins/vue.min.js"></script>
+<script src="js/pagejs/regect.js"></script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>订单列表</title>
+</head>
+<style>
+    body,html{margin: 0;font-family: "微软雅黑";  background: #F0F0F0;}
+    .yiweima{width: 90%;padding: 10px 5% 20px 5%;background: #fff;border-bottom: 1px solid #cccccc;margin-bottom: 1.4rem}
+    .yiweima img{width: 100%;}
+    .zkweser{border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;background: white;}
+    .zkshop{width: 90%;margin: 0 5%;overflow: hidden;padding: 14px 0;border-bottom: 1px solid #ccc;}
+    .zkimg{float: left;width: 72px;height: 72px;border: 1px solid #eee;box-sizing: border-box;margin-right: 10px;}
+    .zkimg img{display: block;width: 100%;height: 100%;}
+    .zkimgdet{float: left; }
+    .zkname{font-size: 14px;color: #323232;
+    }
+    .zktype{font-size: 12px;color: #666;    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;}
+    .gename{font-size: 12px;color: #666;}
+    .ouer{overflow: hidden;border-bottom: 1px solid #ccc;}
+    .ouerse{overflow: hidden;}
+    .ouersemone{float: left;color: #666;font-size: 1.2rem;}
+    .ouersemtow{float: right;color: #999;font-size: 1.2rem;}
+    .ouer{margin: 0 5%;line-height: 38px;}
+    .shiji{line-height: 44px;overflow: hidden;margin: 0 5%;font-size: 1.6rem}
+    .shijifont{float: left;color: #333;}
+    .shijiyuan{float: right;color: #3fc371;}
+    @media (min-width:240px) and (max-width:320px){
+        .zhanwei{height:7.8rem}
+    }
+    @media (min-width:321px) and (max-width:375px){
+        .zhanwei{height:10.8rem}
+    }
+    @media (min-width:376px) and (max-width:414px){
+        .zkimg{float: left;width: 84px;height: 84px;}
+        .zkname{font-size: 16px;color: #323232;}
+        .zktype{font-size: 14px;color: #666;}
+        .gename{font-size: 14px;color: #666;}
+    }
+    
+</style>
+<body>
+<div id="list">
+    <div class="yiweima"><img id="yiweima" :src="img" alt=""></div>
+    <div class="zkweser">
+        <div class="zkshop">
+            <div class="zkimg"><img :src="imgage" alt="update img"></div>
+            <div class="zkimgdet">
+                <div class="zkname" v-text="name">-</div>
+                    <div class="zktype">类型: <span v-text="type"></span></div>
+                    <div class="gename">
+                        <div class="geyuan"><span v-text="dikou+truemoney"></span>元</div>
+                        <div class="geshu">x<span v-text="count">=</span></div>
+                    </div>
+            </div>
+        </div>
+        <div class="ouer">
+            <div class="ouerse">
+                <div class="ouersemone">商品金额</div>
+                <div class="ouersemtow"><span v-text="dikou+truemoney"></span>元</div>
+            </div>
+            <div class="ouerse">
+                <div class="ouersemone">运费</div>
+                <div class="ouersemtow">+0.00元</div>
+            </div>
+            <div class="ouerse">
+                <div class="ouersemone">燃脂币抵扣</div>
+                <div class="ouersemtow">-<span v-text="dikou"></span>元</div>
+            </div>
+        </div>
+        <div class="shiji">
+            <div class="shijifont">实际支付</div>
+            <div class="shijiyuan"><span v-text="truemoney">-</span>元</div>
+        </div>
+    </div>
+</div>
+<!--<a class="mores" v-on:click="isAdd">点击加载更多</a>-->
+<!--<div class="noinfation"></div>-->
+<!--<div class="load" style="display:none;"><img src="img/loading.png" alt=""></div>-->
+</body>
+<script src="js/plugins/jquery-1.8.3.min.js"></script>
+<script src="js/plugins/jquery.cookie.min.js"></script>
+<script src="js/plugins/jquery-barcode.js"></script>
+<script src="js/comming/comming.js"></script>
+<script src="js/comming/service.js"></script>
+<script src="js/plugins/vue.min.js"></script>
+<script src="js/pagejs/dingdandetial.js"></script>
+<script>
+      function generateBarcode(){
+        var value = $("#barcodeValue").val();
+        var btype = "code39"
+        var renderer = "css";        
+		var quietZone = false;
+        if ($("#quietzone").is(':checked') || $("#quietzone").attr('checked')){
+          quietZone = true;
+        }
+		
+        var settings = {
+          output:renderer,
+          bgColor: "#FFFFFF",
+          color: "#000000",
+          barWidth: 1,
+          barHeight: 50,
+          moduleSize: 5,
+          posX: 10,
+          posY: 20,
+          addQuietZone: 1
+        };
+        if ($("#rectangular").is(':checked') || $("#rectangular").attr('checked')){
+          value = {code:value, rect: true};
+        }
+        if (renderer == 'canvas'){
+          clearCanvas();
+          $("#barcodeTarget").hide();
+          $("#canvasTarget").show().barcode(value, btype, settings);
+        } else {
+          $("#canvasTarget").hide();
+          $("#barcodeTarget").html("").show().barcode(value, btype, settings);
+        }
+      }
+</script>
+</html>

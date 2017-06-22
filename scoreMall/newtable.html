@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/addcoin.css">
+    <title>积分记录</title>
+</head>
+<body>
+<!--<div style="display:none">
+   <div class="tip"></div>
+    <table cellspacing="0">
+       <tbody>
+        <th>时间</th>
+        <th>详情</th>
+        <th>积分</th>
+          </tbody>
+           <tbody class="list">
+            <tr v-for="todo in todos">
+                <td width="33.3%">{{todo.gmtCreate}}</td>
+                <td width="33.3%">{{todo.scoreTypeInfo}}</td>
+                <td width="33.3%"><span v-if='todo.type == 0'>+</span><span v-else>-</span>{{todo.score}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> --> 
+<div class="load"><img src="img/loading.png" alt=""></div>
+<div class="topbg"><div class="sou">0</div><div class="souF">我的燃脂币</div></div>
+<div id="table" class="lsera" v-for="todo in todos">
+    <div class="lseral">
+        <div class="lserat">{{todo.scoreTypeInfo}}</div>
+        <div class="lserab">{{todo.gmtCreate}}</div>
+    </div>
+    <div class="lserar">
+<!--        <span v-if='todo.type == 0'>+</span><span v-else>-</span>{{todo.score}}-->
+            +{{todo.score}}
+    </div>
+</div>  
+</body>
+<script src="js/plugins/jquery-1.8.3.min.js"></script>
+<script src="js/plugins/jquery.cookie.min.js"></script>
+<script src="js/comming/comming.js"></script>
+<script src="js/comming/service.js"></script>
+<script src="js/plugins/vue.min.js"></script>
+<script src="js/pagejs/table.js"></script>
+</html>

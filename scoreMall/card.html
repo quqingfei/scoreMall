@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="css/card.css">
+    <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
+    <title>商品详情</title>
+</head>
+<body>
+<div id="onlybuy">
+<!-- Swiper -->
+    <div id="allBlur">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="title"><div class="tisls">{{name}}</div><div class="tis">兑换中</div></div>
+        <div class="coin"><div class="fatcoin"><span>{{rmbPrice}}</span>&nbsp;&nbsp;元</div><div class="price"><span style="border:1px solid #ff915c;border-radius:3px;color:#ff915c;">最多可抵{{price}}燃脂币={{price/100}}元</span></div></div>
+        <div class="discurption">
+            <div style="text-align:left">快递：<span>{{normalFreight? normalFreight : '免运费'}}</span></div>
+            <div style="text-align:center">已兑换：<span>{{cashedCount}}</span>件</div>
+            <div style="text-align:right"><span>湖北 武汉</span></div>
+        </div>
+        <div class="address"><a class="chicun" href="javascript:;"><call class="chuser">请选择 颜色 尺寸</call><span></span></a></div>
+        <div class="rule">
+            <div class="rule-voe">
+                <div class="gang"></div>
+                <div class="gang-word">商品备注</div>
+            </div>
+        </div>
+        <div class="rulelist">
+            <p v-text="describe">1.用户可通过签到、运动或比赛获得燃脂币，当燃脂币达到兑换标准时，即可进行兑换礼品；</p>
+        </div>
+        <div class="rule">
+            <div class="rule-voe">
+                <div class="gang"></div>
+                <div class="gang-word">活动规则</div>
+            </div>
+        </div>
+        <div class="rulelist">
+            <p>1.用户可通过签到、运动或比赛获得燃脂币，当燃脂币达到兑换标准时，即可进行兑换礼品；</p>
+            <p>2.用户确认兑换的礼品后，请填写准确的收货信息，我方将于10个工作日内将奖品寄出，请中奖用户保持联系方式畅通。</p>
+        </div>
+        <div class="merchant">本活动由{{producter}}提供</div>
+        <div class="bottombanner">
+            <img :src="productInfo" alt="">
+        </div>
+        <div class="bottomLan">
+            <div class="jiage"><span style="color:#333;">兑换价：</span><span class="coinPricesubmit">{{rmbPrice}}</span>&nbsp;元</div>
+            <a class="duihuanbtn" href="javascript:;" v-on:click="nowExchange">立即兑换</a>
+        </div>
+    </div>
+    <div class="zhezhao"></div>
+    <div class="dindan">
+        <div class="order">
+            <div class="order-img"><img id="bannerType" :src="cover" alt=""></div>
+            <a class="close" href="javascript:;"><img src="img/cencle.png" alt=""></a>
+            <div class="detiale">
+                <div class="detiale-jia"><span class="coinPrice">{{rmbPrice}}</span>&nbsp;&nbsp;元</div>
+                <div class="detiale-text">请选择颜色，尺寸</div>
+            </div>
+            <div class="choosecolor">
+                <div class="choose-word">请选择<span class="tip">请选择类型!</span></div>
+                <a href="javascript:;" v-for="todo in todos"  v-on:click="typeOnly(todo.images,todo.crashPrice,todo.name,$event)">{{todo.name}}</a>
+            </div>
+            <div class="choose-num">
+                <div class="choose-num-left">购买数量</div>
+                <div class="choose-num-right">
+                    <a href="javascript:;" class="jianhao" v-on:click="subtractNumber">-</a><span id="number" data-value='1'>1</span><a class="jiahao" v-on:click="addNumber" href="javascript:;">+</a>
+                </div>
+            </div>
+            <div class="submit"><a href="javascript:;" v-on:click="submitBtn">确认</a></div>
+        </div>
+    </div>
+</div>
+<div class="load"><img src="img/loading.png" alt=""></div>
+</body>
+<script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.min.js"></script>
+<script src="js/plugins/jquery-1.8.3.min.js"></script>
+<script src="js/plugins/jquery.cookie.min.js"></script>
+<script src="js/comming/comming.js"></script>
+<script src="js/comming/service.js"></script>
+<script src="js/plugins/vue.min.js"></script>
+<script src="js/pagejs/card.js"></script>
+<script src="js/pagejs/onlybuy.js"></script>
+</html>

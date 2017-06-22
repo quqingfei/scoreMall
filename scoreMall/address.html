@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-
+
+scale=1.0,user-scalable=no"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="css/sm.css">
+    <link rel="stylesheet" href="css/address.css">
+    <script type='text/javascript' src='js/plugins/zepto.js' charset='utf-8'></script>
+    <title>添加地址</title>
+</head>
+<style>
+  
+</style>
+<body>
+   <div class="coneter">
+    <div class="shuliang">
+        <small class="name"></small>
+        <div class="shlmi">姓名：</div>
+        <div class="count"><input id="name" type="text" placeholder="请填写收货人姓名"></div>
+    </div>
+    <div class="shuliang">
+        <small class="phone"></small>
+        <div class="shlmi">电话：</div>
+        <div class="count"><input id="phone" type="number" placeholder="请填写收货人手机号码"></div>
+    </div>
+    <div class="shuliang">
+        <small class="citys"></small>
+        <div class="shlmi">省市区：</div>
+        <div class="count"><input type="text" placeholder="请选择收货地址" value="湖北 武汉 洪山区" id='city-picker'/></div>
+    </div>
+    <div class="shuliang neshtop">
+        <small class="address"></small>
+        <div class="shlmi nesh">详细地址：</div>
+        <div class="count"><input id="address" type="text" placeholder="请填写详细地址"/></div>
+    </div>
+</div>
+
+<div class="bottomLan">
+    <a class="duihuanbtn" href="javascript:;" data-val='0'>保存地址</a>
+</div>
+
+</body>
+ <script type='text/javascript' src='js/plugins/sm.js' charset='utf-8'></script>
+<script type="text/javascript" src="js/plugins/sm-city-picker.min.js" charset="utf-8"></script>
+<script src="js/pagejs/addcoin.js"></script>
+<script>
+    $(document).ready(function(){        
+        $("#city-picker").cityPicker({
+                toolbarTemplate: '<header class="bar bar-nav">\
+                <button class="button button-link pull-right close-picker" style="color:#3fc371">确定</button>\
+                <h1 class="title">选择收货地址</h1>\
+                </header>'
+        });
+//        var sign = 'OKveW0u2NSvwXsjetkD5cfQGHoS8XgOZckNtIdfHO02DI9rBdBmopDIdXegfYd135CeKv16ZrYJTdlmc7uh71Q==';
+//        $.ajax({
+//            type:'POST',
+//            url: '../fatburn/ScoreAction!checkSign.zk?sign='+sign,
+//            success: function(res){
+//
+//            }
+//        })
+        $('#address').css('width',($('.neshtop').width()-$('.nesh').width()-1)+'px');
+        var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+        $('.duihuanbtn').click(function(){
+           var name = $('#name').val();
+           var phone = $('#phone').val();
+           var citys = $('#city-picker').val();
+           var address = $('#address').val();
+           var submit = $(this).attr('data-val');
+           // var telReg = !!phone.match();
+           if(name.trim().length<=0){
+                tip($('.name'),'姓名不能为空！')
+                return false;
+           }else if(phone.trim().length<=0){
+                tip($('.phone'),'电话号码不能为空,且必须为数字！');
+                return false;
+           }else if(!reg.test(phone)){
+                tip($('.phone'),'手机号码格式不正确！');
+                return false;
+           }else if(citys.trim().length<=0){
+                tip($('.citys'),'省市区不能为空！');
+                return false;
+           }else if(address.trim().length<=0){
+                tip($('.address'),'详细地址不能为空！');
+                return false;
+           }
+           $.ajax({
+                type:'POST',
+                url: '/fatburn/ScoreMallAction!addAddresss.zk',
+                data: {
+                    receiver: name,
+                    phone: phone,
+                    address: citys+address,
+                    roomNumber: address
+                },
+                dataType: 'json',
+                beforeSend: function(){
+                    if(submit == 0){                        
+                        $('.duihuanbtn').text('保存中...');
+                        $('.duihuanbtn').attr('data-val','1');
+                    }
+                },
+                success: function(res){
+                    if(res.STATUS){
+                        window.location.href = 'regect.html';
+                    }
+                },
+                complete: function(){
+                    $('.duihuanbtn').text('保存地址');
+                    $('.duihuanbtn').attr('data-val','0');
+                },
+                error: function(err){
+                    console.log(err);
+                }
+           })
+        })    
+        function tip(ele,srting){
+            ele.html(srting);
+            ele.show();
+            setTimeout(function(){
+                ele.hide();
+            },1500);
+        }
+    })
+
+</script>
+</html>
